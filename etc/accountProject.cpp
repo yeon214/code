@@ -31,27 +31,29 @@ public :
 	int moneyMinusOutput() { return moneyMinus(); }
 };
 int main(void){
-	cout << "고객님의 성함을 입력해주세요: ";
+	cout << "고객님의 성함을 입력해 주세요: ";
 	account customer;
-	int choice;
+	int choice, theOtherPersonAccount;
 	cout << "이름: " << customer.accountNameOutput() << endl;
 	cout << "계좌번호: " << customer.accountNumberOutput() << endl;
 	cout << "잔액: " << customer.originalMoney_Plus_InterestRate_Output() << endl;
-	cout << "10,000원 이상부터 단리 방식으로 10% 이자가 붙습니다." << endl;
+	cout << "10,000원 이상 예치 시, 단리 방식으로 10% 이자가 적용됩니다." << endl;
 	cout << "많은 이용 바랍니다. 감사합니다.\n\n";
 	while (1) {
 		cout << "1. 입금\n2. 출금\n3. 잔액 조회\n4. 종료\n\n";
-		cout << "원하시는 번호를 입력해주세요.\n\n";
+		cout << "원하시는 번호를 입력해 주세요.\n\n";
 		cin >> choice;
 		if (choice == 1) {
-			cout << "입금하실 금액을 입력해주십시오: ";
+			cout << "입금할 금액을 입력해 주세요: ";
 			customer.moneyPlusOutput();
 			cout << "현재 잔액: " << customer.originalMoney_Plus_InterestRate_Output() << endl << endl;
 		}
 		else if (choice == 2) {
-			cout << "출금하실 금액을 입력해주십시오: ";
+			cout << "이체할 계좌번호를 입력해 주세요: ";
+			cin >> theOtherPersonAccount;
+			cout << "출금할 금액을 입력해 주세요: ";
 			customer.moneyMinusOutput();
-			cout << "이체 수수료 500원이 차감되었습니다.\n";
+			cout << "이체 수수료 500원이 부과되었습니다.\n";
 			cout << "현재 잔액: " << customer.originalMoney_Plus_InterestRate_Output() << endl << endl;
 		}
 		else if (choice == 3) {
