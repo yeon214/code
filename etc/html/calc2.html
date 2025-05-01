@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20243077 신승연</title>
+  <style>
+    @media (max-width:540px) {
+      div.empty {
+        display: none;
+      }
+
+      div.vertical {
+        display: block;
+      }
+
+      div.horizontal {
+        display: none;
+      }
+    }
+
+    @media (max-width:360px) {
+      div.empty {
+        display: block;
+      }
+
+      div.vertical {
+        display: none;
+      }
+
+      div.horizontal {
+        display: none;
+      }
+    }
+
+    @media (min-width:541px) {
+      div.empty {
+        display: none;
+      }
+
+      div.vertical {
+        display: none;
+      }
+
+      div.horizontal {
+        display: block;
+      }
+    }
+
+    div {
+      width: max-content;
+      background-color: #e6e4e4;
+      border: 1px solid #d0cccc;
+      padding: 20px;
+      padding-bottom: 10px;
+      margin: 20px;
+      border-radius: 1%;
+    }
+
+    #display1 {
+      border: 2px solid #ececec;
+      background-color: rgb(255, 255, 255);
+      font-size: 2em;
+      text-align: right;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #display2 {
+      border: 2px solid #bdb9b9;
+      background-color: white;
+      font-size: 2em;
+      text-align: right;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    table {
+      border-collapse: collapse;
+      height: 100%;
+    }
+
+    button,
+    .button,
+    .button1,
+    .button2 {
+      border: none;
+      outline: none;
+      border-radius: 16px;
+      margin: 6px;
+      font-size: 2em;
+      width: 70px;
+      height: 70px;
+      box-shadow: none !important;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+
+    .button {
+      background: #ffffff;
+      color: #222;
+    }
+
+    .button1 {
+      background: #e0e0e0;
+      color: #222;
+    }
+
+    .button2 {
+      background: #FFD600;
+      color: #222;
+      font-weight: bold;
+    }
+
+    button:active,
+    .button:active,
+    .button1:active,
+    .button2:active {
+      filter: brightness(0.92);
+    }
+
+    table {
+      border-collapse: separate !important;
+      border-spacing: 0px 0px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input {
+      border: none;
+      border-radius: 12px;
+      background: #fff;
+      font-size: 2em;
+      text-align: right;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="empty">
+    <p>표시할수 없음.</p>
+  </div>
+  <div class="vertical">
+    <table width=360 height=660>
+      <tr>
+        <td colspan="4"><input id="display1"></input></td>
+      </tr>
+    </table>
+    <table width=360 height=660>
+      <tr>
+        <td><button class="button1" onclick="PlusMinusButton();">±</button></td>
+        <td><button class="button1" onclick="deleteBack();">⌫</button></td>
+        <td><button class="button1" onclick="factorial();">!</button></td>
+        <td><button class="button1" onclick="absolute();">|x|</button></td>
+      </tr>
+      <tr>
+        <td><button class="button1" onclick="CEButton();">CE</button></td>
+        <td><button class="button1" onclick="sqrtButton();">√x</button></td>
+        <td><button class="button1" onclick="percentButton();">%</button></td>
+        <td><button class="button2" onclick="divButton();">÷</button></td>
+      </tr>
+      <tr>
+        <td><button class="button" onclick="numberButton(7);">7</button></td>
+        <td><button class="button" onclick="numberButton(8);">8</button></td>
+        <td><button class="button" onclick="numberButton(9);">9</button></td>
+        <td><button class="button2" onclick="xButton();">x</button></td>
+      </tr>
+      <tr>
+        <td><button class="button" onclick="numberButton(4);">4</button></td>
+        <td><button class="button" onclick="numberButton(5);">5</button></td>
+        <td><button class="button" onclick="numberButton(6);">6</button></td>
+        <td><button class="button2" onclick="minusButton();">-</button></td>
+      </tr>
+      <tr>
+        <td><button class="button" onclick="numberButton(1);">1</button></td>
+        <td><button class="button" onclick="numberButton(2);">2</button></td>
+        <td><button class="button" onclick="numberButton(3);">3</button></td>
+        <td><button class="button2" onclick="plusButton();">+</button></td>
+      </tr>
+      <tr>
+        <td><button class="button" onclick="numberButton(0);">0</button></td>
+        <td><button class="button" onclick="periodButton();">.</button></td>
+        <td><button class="button" onclick="changeSign();">+/-</button></td>
+        <td><button class="button2" onclick="equalButton();">=</button></td>
+      </tr>
+      <tr>
+        <td><button class="button1" onclick="piButton();">π</button></td>
+        <td><button class="button1" onclick="xxButton();">x<sup>2</button></td>
+        <td><button class="button1" onclick="RtwoButton();">R2</button></td>
+        <td><button class="button1" onclick="RzeroButton();">R0</button></td>
+      </tr>
+    </table>
+    <p style="text-align: right; font-size: 1em; margin: 5px; ">
+      20243077 신승연
+    </p>
+    <p
+      style="text-align: right; font-size: 1em; text-decoration: line-through; margin: 2px; text-decoration-color: powderblue;">
+      sunyeon1115@gmail.com
+  </div>
+  <div class="horizontal">
+    <table width=540 height=480>
+      <tr>
+        <td colspan="7"><input id="display2"></input></td>
+      </tr>
+      <tr>
+        <td><button class="button1" onclick="PlusMinusButton();">±</button></td>
+        <td><button class="button1" onclick="deleteBack();">⌫</button></td>
+        <td><button class="button" onclick="numberButton(7);">7</button></td>
+        <td><button class="button" onclick="numberButton(8);">8</button></td>
+        <td><button class="button" onclick="numberButton(9);">9</button></td>
+        <td><button class="button2" onclick="divButton();">÷</button></td>
+        <td><button class="button1" onclick="RtwoButton();">R2</button></td>
+      </tr>
+      <tr>
+        <td><button class="button1" onclick="factorial();">!</button></td>
+        <td><button class="button1" onclick="absolute();">|x|</button></td>
+        <td><button class="button" onclick="numberButton(4);">4</button></td>
+        <td><button class="button" onclick="numberButton(5);">5</button></td>
+        <td><button class="button" onclick="numberButton(6);">6</button></td>
+        <td><button class="button2" onclick="xButton();">x</button></td>
+        <td><button class="button1" onclick="RzeroButton();">R0</button></td>
+      </tr>
+      <tr>
+        <td><button class="button1" onclick="piButton();">π</button></td>
+        <td><button class="button1" onclick="xxButton();">x<sup>2</button></td>
+        <td><button class="button" onclick="numberButton(1);">1</button></td>
+        <td><button class="button" onclick="numberButton(2);">2</button></td>
+        <td><button class="button" onclick="numberButton(3);">3</button></td>
+        <td><button class="button2" onclick="minusButton();">-</button></td>
+        <td><button class="button1" onclick="CEButton();">CE</button></td>
+      </tr>
+      <tr>
+        <td><button class="button1" onclick="sqrtButton();">√x</button></td>
+        <td><button class="button1" onclick="percentButton();">%</button></td>
+        <td><button class="button" onclick="numberButton(0);">0</button></td>
+        <td><button class="button" onclick="periodButton();">.</button></td>
+        <td><button class="button" onclick="changeSign();">+/-</button></td>
+        <td><button class="button2" onclick="plusButton();">+</button></td>
+        <td><button class="button2" onclick="equalButton();">=</button></td>
+      </tr>
+    </table>
+    <p style="text-align: right; font-size: 1em; margin: 5px; ">
+      20243077 신승연
+    </p>
+    <p
+      style="text-align: right; font-size: 1em; text-decoration: line-through; margin: 2px; text-decoration-color: powderblue;">
+      sunyeon1115@gmail.com
+    </p>
+  </div>
+  <div id="description">
+    <h3>📌 창의적 기능 설명</h3>
+    <ul>
+      <li><strong>± (부호 바꾸기):</strong> 입력된 숫자의 부호를 반대로 전환합니다. 예: 5 → -5</li>
+      <li><strong>⌫ (Backspace):</strong> 마지막 입력한 문자 하나를 삭제합니다. 예: 123 → 12</li>
+      <li><strong>! (팩토리얼):</strong> 정수에 대한 팩토리얼 값을 계산합니다. 예: 5! = 120</li>
+      <li><strong>|x| (절댓값):</strong> 입력된 수의 절댓값을 계산합니다. 예: -7 → 7</li>
+    </ul>
+  </div>
+  <script>
+    let memoryValue = 0;
+    let integerInput = true;
+
+    function numberButton(num) {
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      if (num === '.' && display1.value.slice(-1) === '.') {
+        display1.value = display1.value.slice(0, -1);
+      } else {
+        display1.value += num;
+      }
+
+      if (num === '.' && display2.value.slice(-1) === '.') {
+        display2.value = display2.value.slice(0, -1);
+      } else {
+        display2.value += num;
+      }
+    }
+
+    function plusButton() {
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      if (!isNaN(display1.value.slice(-1))) {
+        display1.value += '+';
+      }
+
+      if (!isNaN(display2.value.slice(-1))) {
+        display2.value += '+';
+      }
+    }
+
+    function minusButton() {
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      if (!isNaN(display1.value.slice(-1))) {
+        display1.value += '-';
+      }
+
+      if (!isNaN(display2.value.slice(-1))) {
+        display2.value += '-';
+      }
+    }
+
+    function divButton() {
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      if (!isNaN(display1.value.slice(-1))) {
+        display1.value += '/';
+      }
+
+      if (!isNaN(display2.value.slice(-1))) {
+        display2.value += '/';
+      }
+    }
+
+    function xButton() {
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      if (!isNaN(display1.value.slice(-1))) {
+        display1.value += '*';
+      }
+
+      if (!isNaN(display2.value.slice(-1))) {
+        display2.value += '*';
+      }
+    }
+
+    function periodButton() {
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+
+      if (display1.value.slice(-1) === '.') {
+        return;
+      }
+
+
+      if (display2.value.slice(-1) === '.') {
+        return;
+      }
+
+      display1.value += '.';
+      display2.value += '.';
+    }
+
+    function CEButton() {
+      memoryValue = 0;
+
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      display1.value = '';
+      display2.value = '';
+    }
+
+    function equalButton() {
+
+      let display1 = document.getElementById("display1");
+      const result1 = eval(display1.value);
+      display1.value = result1;
+
+      let display2 = document.getElementById("display2");
+      const result2 = eval(display2.value);
+      display2.value = result2;
+    }
+
+    function PlusMinusButton() {
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      // Toggle sign for display1
+      if (display1.value.charAt(0) === '-') {
+        display1.value = display1.value.slice(1);  // Remove the "-" sign
+      } else {
+        display1.value = '-' + display1.value;  // Add the "-" sign
+      }
+
+      // Toggle sign for display2
+      if (display2.value.charAt(0) === '-') {
+        display2.value = display2.value.slice(1);  // Remove the "-" sign
+      } else {
+        display2.value = '-' + display2.value;  // Add the "-" sign
+      }
+    }
+
+    function deleteBack() {
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      // display1과 display2의 값이 숫자라면
+      let inputValue1 = parseFloat(display1.value);
+      let inputValue2 = parseFloat(display2.value);
+
+      // 일의 자리를 버리기 위해 10으로 나누고, 다시 정수로 변환
+      if (!isNaN(inputValue1)) {
+        display1.value = Math.floor(inputValue1 / 10);
+      }
+      if (!isNaN(inputValue2)) {
+        display2.value = Math.floor(inputValue2 / 10);
+      }
+    }
+    function factorial() {
+
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      let num1 = parseInt(display1.value);
+      let num2 = parseInt(display2.value);
+
+      function calcFactorial(num) {
+        if (num === 0 || num === 1) {
+          return 1;
+        }
+        let result = 1;
+        for (let i = 2; i <= num; i++) {
+          result *= i;
+        }
+        return result;
+      }
+
+      if (!isNaN(num1)) {
+        display1.value = calcFactorial(num1);
+      }
+      if (!isNaN(num2)) {
+        display2.value = calcFactorial(num2);
+      }
+    }
+
+    function absolute() {
+
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      // display1 값에 대해 절댓값 계산
+      let num1 = parseFloat(display1.value);
+      if (!isNaN(num1)) {
+        display1.value = Math.abs(num1);
+      }
+
+      // display2 값에 대해 절댓값 계산
+      let num2 = parseFloat(display2.value);
+      if (!isNaN(num2)) {
+        display2.value = Math.abs(num2);
+      }
+    }
+
+    function piButton() {
+
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      display1.value += Math.PI;
+      display2.value += Math.PI;
+    }
+
+    function xxButton() {
+
+      var display1 = document.getElementById("display1");
+      var display2 = document.getElementById("display2");
+
+      var inputValue1 = parseFloat(display1.value);
+      var inputValue2 = parseFloat(display2.value);
+
+      if (!isNaN(inputValue1)) {
+        display1.value = Math.pow(inputValue1, 2);
+      }
+      if (!isNaN(inputValue2)) {
+        display2.value = Math.pow(inputValue2, 2);
+      }
+
+    }
+
+    function RtwoButton() {
+      var display1 = document.getElementById("display1");
+      var display2 = document.getElementById("display2");
+
+      var inputValue1 = parseFloat(display1.value);
+      var inputValue2 = parseFloat(display2.value);
+
+      if (!isNaN(inputValue1)) {
+        display1.value = (Math.round(inputValue1 * 100) / 100).toFixed(2);
+      }
+      if (!isNaN(inputValue2)) {
+        display2.value = (Math.round(inputValue2 * 100) / 100).toFixed(2);
+      }
+    }
+
+    function sqrtButton() {
+
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      let inputValue1 = parseFloat(display1.value);
+      let inputValue2 = parseFloat(display2.value);
+      if (!isNaN(inputValue1)) {
+        display1.value = Math.sqrt(inputValue1);
+      }
+      if (!isNaN(inputValue2)) {
+        display2.value = Math.sqrt(inputValue2);
+      }
+    }
+
+    function percentButton() {
+
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      let inputValue1 = parseFloat(display1.value);
+      let inputValue2 = parseFloat(display2.value);
+
+      if (!isNaN(inputValue1)) {
+        display1.value = inputValue1 / 10;
+      }
+      if (!isNaN(inputValue2)) {
+        display2.value = inputValue2 / 10;
+      }
+    }
+
+    function RzeroButton() {
+
+      var display1 = document.getElementById("display1");
+      var display2 = document.getElementById("display2");
+
+      var inputValue1 = parseFloat(display1.value);
+      var inputValue2 = parseFloat(display2.value);
+
+      if (!isNaN(inputValue1)) {
+        display1.value = Math.round(inputValue1);
+      }
+      if (!isNaN(inputValue2)) {
+        display2.value = Math.round(inputValue2);
+      }
+    }
+
+    function changeSign() {
+
+      let display1 = document.getElementById("display1");
+      let display2 = document.getElementById("display2");
+
+      if (display1.value !== "") {
+        if (display1.value.charAt(0) === "-") {
+          display1.value = display1.value.slice(1);
+        }
+        else {
+          display1.value = "-" + display1.value;
+        }
+      }
+
+      if (display2.value !== "") {
+        if (display2.value.charAt(0) === "-") {
+          display2.value = display2.value.slice(1);
+        }
+        else {
+          display2.value = "-" + display2.value;
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>
