@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>동의대학교 DAP시스템</title>
+  <style>
+    .click {
+      background-color: rgb(70, 70, 70);
+      color: white;
+      padding: 3px 5px;
+    }
+
+    .gap {
+      margin: 15px;
+    }
+
+    .text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      background-color: #29bb36;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      height: 30px;
+      font-size: 14px;
+      text-align: center;
+      width: 40px;
+      vertical-align: middle;
+      line-height: 30px;
+    }
+
+    .table-first {
+      border: 1px solid #adacac;
+      border-collapse: collapse;
+      width: calc(100% / 6);
+      text-align: center;
+      padding: 0px 20px;
+      height: 290px;
+      font-size: 20px;
+      vertical-align: top;
+    }
+
+    .gray-color {
+      border: 1px solid #f4f4f4;
+      border-collapse: collapse;
+    }
+
+    button.gray {
+      background-color: #f4f4f4;
+      color: gray;
+      width: 55px;
+      vertical-align: top;
+    }
+
+    button.blue {
+      background-color: #05b5eb;
+      color: white;
+      width: 70px;
+      height: 25px;
+      border-radius: 0px;
+      vertical-align: top;
+      line-height: 25px;
+      padding: 0;
+      font-size: 13px;
+    }
+
+    .tab-button {
+      padding: 10px;
+      color: gray;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      color: rgb(8, 8, 189);
+    }
+
+    .tab-content {
+      display: none;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+  <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+</head>
+
+<body>
+  <div style="font-size:20px; color:white; background-color: rgb(8, 8, 189); padding:15px;">역량정보</div>
+  <div
+    style="font-size:15px; background-color:#f4f4f4; padding:3px 20px; border-top: 2px solid black; margin:20px 15px 20px; border-left:1px solid#c7c3c3; border-right:1px solid#c7c3c3; border-bottom: 1px solid#c7c3c3">
+    <ul style="list-style: disc; list-style-position: outside; padding-left: 20px;">
+      <li style="display: list-item;">
+        <span style="display: inline-flex; align-items: center; gap: 6px;">
+          성명/학번 :
+          <input type="text" style="height: 20px; border: 1px solid#c7c3c3">
+          <span id="search_icon">
+            <i class="fas fa-search click" style="cursor: pointer;"></i>
+          </span>
+          <input type="text" style="background-color: #e6e6e6; height: 20px; border: 1px solid#c7c3c3">
+          <span class="click">검색</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <!--여기까지 ㄱㅊ-->
+  <div style="display: flex; align-items: stretch; gap: 10px; ">
+    <div style="color:white; background-color: rgb(8, 8, 189); width:430px; height:345px;" class="gap">
+      <img src="./cute.png"
+        style="width: 120px; height: 120px; border-radius: 50%; padding:40px 25px; vertical-align:top;">
+      <span style="display: inline-block; margin:50px 0px">
+        20243077<br>
+        <span
+          style="display: inline-block; margin:10px 0px; font-size:25px; font-weight: bold; margin-right: 8px;">신승연</span>
+        <button>재학</button>
+        <button>SMS</button>
+      </span>
+      <table style="color:white; font-size:15px; line-height:1.2; margin:-20px 20px">
+        <tr>
+          <td>단과 대학</td>
+          <td>: 소프트웨어융합대학</td>
+        </tr>
+        <tr>
+          <td>학과/전공</td>
+          <td>: 응용소프트웨어공학과</td>
+        </tr>
+        <tr>
+          <td>학년/학기</td>
+          <td>: 2학년 - 1학기</td>
+        </tr>
+        <tr>
+          <td>Mobile</td>
+          <td>: 010-7777-7777</td>
+        </tr>
+        <tr>
+          <td>E-Mail</td>
+          <td>: a@gmail.com</td>
+        </tr>
+        <tr>
+          <td>지도 교수</td>
+          <td>: 이광의 / 평점: 4.50</td>
+        </tr>
+      </table>
+    </div>
+
+    <!--여기까지 ㄱㅊ-->
+    <div style=" padding: 10px; width: 1800px; height: 322px; margin:5px 0px 0px -10px;">
+      <table style="font-size: 14px; width: 1780px; table-layout: fixed;" class="table-first">
+        <tr style="border:1px solid #adacac">
+          <td colspan="6"
+            style="text-align:left; padding-left:30px; font-size:30px; color:rgb(4, 23, 129); background-color:#f4f4f4">
+            핵심역량(동일학년
+            최대포인트 대비)</td>
+        </tr>
+        <tr class="table-first">
+          <td class="table-first">
+            <p>자기경영</p>
+            <img src="./KakaoTalk_20250514_001202495.png"><br>
+            <span style="font-weight: bold; font-size:40px;">0</span>
+            <span style="color:gray; font-size:25px;">/1,620</span>
+          </td>
+          <td class="table-first">
+            <p>글로컬</p>
+            <img src="./KakaoTalk_20250514_001213261.png"><br>
+            <span style="font-weight: bold; font-size:40px;">0</span>
+            <span style="color:gray; font-size:25px;">/250</span>
+          </td>
+          <td class="table-first">
+            <p>나눔</p>
+            <img src="KakaoTalk_20250514_001221086.png"><br>
+            <span style="font-weight: bold; font-size:40px;">0</span>
+            <span style="color:gray; font-size:25px;">/800</span>
+          </td>
+          <td class="table-first">
+            <p>소통</p>
+            <img src="./KakaoTalk_20250514_001229195.png"><br>
+            <span style="font-weight: bold; font-size:40px;">0</span>
+            <span style="color:gray; font-size:25px;">/360</span>
+          </td>
+          <td class="table-first">
+            <p style="padding-bottom:15px;">융합</p>
+            <img src="./KakaoTalk_20250514_001239016.png"><br>
+            <span style="font-weight: bold; font-size:40px;">0</span>
+            <span style="color:gray; font-size:25px;">/240</span>
+          </td>
+          <td class="table-first">
+            <p>도전성취</p>
+            <img src="./KakaoTalk_20250514_001252869.png"><br>
+            <span style="font-weight: bold; font-size:40px;">0</span>
+            <span style="color:gray; font-size:25px;">/430</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!--여기까지 ㄱㅊ-->
+  <div style="display: flex;">
+    <table style="width:425px; height:345px; margin-left:16px;" class="gray-color">
+      <tr class="gray-color">
+        <td>
+          <img src="./KakaoTalk_20250514_004955445.png" style="width:80px; height:30px">
+          <span style="font-size:20px; padding: 20px; vertical-align:top">GRIT 검사</span>
+          <button class="gray" style="margin-left: 140px;">미작성</button>
+        </td>
+      </tr>
+      <tr class="gray-color">
+        <td>
+          <img src="./KakaoTalk_20250514_005002976.png" style="width:80px; height:30px">
+          <span style="font-size:20px; padding: 20px; vertical-align:top">직업적성검사</span>
+          <button class="gray" style="margin-left: 115px;">미작성</button>
+        </td>
+      </tr>
+      <tr class="gray-color">
+        <td>
+          <img src="KakaoTalk_20250514_005010228.png" style="width:80px; height:30px">
+          <span style="font-size:20px; padding: 20px; vertical-align:top">직업선호도 검사 S형</span>
+          <button class="gray" style="margin-left:55px;">미작성</button>
+        </td>
+      </tr>
+      <tr class="gray-color">
+        <td>
+          <img src="KakaoTalk_20250514_005019321.png" style="width:80px; height:30px">
+          <span style="font-size:20px; padding: 20px; vertical-align:top">창업 적성검사</span>
+          <button class="gray" style="margin-left: 110px;">미작성</button>
+        </td>
+      </tr>
+      <tr class="gray-color">
+        <td>
+          <img src="KakaoTalk_20250514_005025871.png" style="width:80px; height:30px">
+          <span style="font-size:20px; padding: 20px; vertical-align:top">직업가치관 검사</span>
+          <button class="gray" style="margin-left: 90px;">미작성</button>
+        </td>
+      </tr>
+      <tr class="gray-color">
+        <td>
+          <img src="KakaoTalk_20250514_005035734.png" style="width:80px; height:30px">
+          <button class="gray" style="margin-left: 270px;">미등록</button>
+        </td>
+      </tr>
+      <tr class="gray-color">
+        <td>
+          <img src="KakaoTalk_20250514_005050808.png" style="width:80px; height:30px">
+          <button class="gray" style="margin-left: 270px;">미등록</button>
+        </td>
+      </tr>
+      </tr>
+    </table>
+    <table style="margin-left:23px; border-collapse: collapse;">
+      <tr>
+        <td
+          style="background-color: #f4f4f4; color:rgb(4, 23, 129); width:1150px; height:40px; border:1px solid #adacac;padding-left:30px; font-size:30px;">
+          희망 직무역량
+          <span style="font-size: 30px; margin-left: 920px">+</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #adacac;">
+          <div style="display: flex; align-items: center; padding: 20px;">
+            <img src="./a.png" style="padding-left:250px">
+            <div style="font-size: 50px; padding-left: 40px;">
+              <div>
+                <span style="padding-left: 20px; color:rgb(25, 57, 236); font-weight: bold;">희망직무 </span>
+                <span>정보가</span>
+              </div>
+              <div style="margin-top: 5px;">존재하지 않습니다.</div>
+              <div
+                style="color: gray; text-decoration: underline; font-size: 20px; margin-top: 5px; padding-left: 80px;">
+                희망직무선택 바로가기
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <table style="margin-left:23px; border-collapse: collapse;">
+      <tr>
+        <td
+          style="background-color: #f4f4f4; color:rgb(4, 23, 129); width:543px; height:40px; border:1px solid #adacac;padding-left:30px; font-size:30px;">
+          취업
+        </td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #adacac; vertical-align: top;"><br>
+          <span style="padding-left:200px; padding-bottom:300px;font-size: 20px;">통합 마일리지</span><br>
+          <span style="font-size: 50px; padding-left:230px">0p</span>
+          <hr style="border: none; border-top: 1px dashed #adacac; margin: 10px 40px;">
+          <span style="padding-left:80px; font-size: 20px;">이력서/자기소개서&nbsp; 온라인진로학습&nbsp;&nbsp; 비전설정</span><br>
+          <img src="./d.png" style="padding-left:120px">
+          <img src="./c.png" style="padding-left:50px">
+          <img src="./b.png" style="padding-left:30px">
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--여기까지 ㄱㅊ-->
+  <div style="display: flex; margin-left:15px; margin-top:15px">
+    <table style="border-collapse: collapse; width:425px; height:250px">
+      <tr style="background-color: #f4f4f4; height:50px">
+        <td style="color:rgb(4, 23, 129); border:1px solid #adacac; padding-left:25px">취업상담
+          <span style="color:gray">&nbsp;&nbsp;|&nbsp;&nbsp;학과상담&nbsp;&nbsp;|&nbsp;&nbsp;학업상담</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #adacac; vertical-align: top;"><br>
+          <li style="padding-left:30px; color:gray">상담 신청 정보 없음.</li>
+        </td>
+      </tr>
+    </table>
+    <table style="border-collapse: collapse; width:1180px; height:250px; margin-left:26px">
+      <tr style="background-color: #f4f4f4; height:50px">
+        <td style="color:rgb(4, 23, 129); border:1px solid #adacac; padding-left:25px; vertical-align: top;">신청 가능 프로그램
+          <span style="color:gray">&nbsp;&nbsp;|&nbsp;&nbsp;프로그램 이수현황&nbsp;&nbsp;|&nbsp;&nbsp;[증빙 신청하기]</span>
+          <span style="font-size: 30px; margin-left: 690px">+</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #adacac; vertical-align: top;"><br>
+          <li style="padding-left:30px; color:gray; margin-bottom: 8px;">[대학혁신사업] 2024학년도 1학기 기초학력..
+            (2024.03.13~2024.06.14) <button class="blue" style="margin-left:500px">신 청</button>
+          </li>
+          <li style="padding-left:30px; color:gray; margin-bottom: 8px;">[대학혁신사업] 2024학년도 1학기 기초학력..
+            (2024.03.13~2024.06.14) <button class="blue" style="margin-left:500px">신 청</button>
+          </li>
+          <li style="padding-left:30px; color:gray; margin-bottom: 8px;">[대학혁신사업] 2024학년도 1학기 기초학력..
+            (2024.03.13~2024.06.14) <button class="blue" style="margin-left:500px">신 청</button>
+          </li>
+          <li style="padding-left:30px; color:gray; margin-bottom: 8px;">도서관 우수이용자상.. (2024.03.04~2024.11.30)
+            <button class="blue" style="margin-left:652px">신 청</button>
+          </li>
+        </td>
+      </tr>
+    </table>
+    <table
+      style="border-collapse: collapse; width: 580px; height: 250px; border: 1px solid #adacac; margin-left: 23px;">
+      <tr style="background-color: #f4f4f4; height: 50px; border: 1px solid #adacac;">
+        <td colspan="2" style="padding-left:20px; font-size:20px">
+          <span class="tab-button active" onclick="showTab('cert', this)">자격증</span>
+          |
+          <span class="tab-button" onclick="showTab('lang', this)">어학성적</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="vertical-align: top;">
+          <div id="cert" class="tab-content active" style="padding-left:25px; font-size:15px; color:gray">• &nbsp;정보처리기사
+          </div>
+          <div id="lang" class="tab-content" style="padding-left:25px; font-size:15px; color:gray">• &nbsp;토익 850점</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function showTab(id, element) {
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      element.classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+
+</html>
